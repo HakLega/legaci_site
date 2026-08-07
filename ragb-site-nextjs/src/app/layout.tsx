@@ -1,0 +1,1 @@
+import type {Metadata} from "next";import "./globals.css";export const metadata:Metadata={title:"RAGB | Serviços e Soluções Regulatórias",description:"Consultoria regulatória especializada em ANVISA e MAPA."};export default function Layout({children}:{children:React.ReactNode}){return <html lang="pt-BR"><body>{children}</body></html>}
