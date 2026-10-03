@@ -1,11 +1,220 @@
-import {ArrowRight,CheckCircle2,ClipboardCheck,FileSearch,Globe2,MessageCircle,Route,ShieldCheck,Target} from "lucide-react";
-const services=[{title:"ANVISA",text:"AFE, registros, notificações, Boas Práticas de Fabricação e Hosting Service."},{title:"MAPA",text:"Licenças de estabelecimento, registro de produtos, boas práticas e renovações."},{title:"Viabilidade Regulatória",text:"Enquadramento, requisitos, avaliação de riscos e estratégia de entrada no Brasil."}];
-const steps=[[FileSearch,"Entendimento"],[Route,"Estratégia"],[ClipboardCheck,"Execução"],[CheckCircle2,"Acompanhamento"]] as const;
-export default function Home(){return <><header><div className="container nav"><a className="logo" href="#inicio">LEGARE <small>Serviços e Soluções Regulatórias</small></a><nav><a href="#sobre">Sobre</a><a href="#servicos">Serviços</a><a href="#processo">Como trabalhamos</a><a className="btn sm" href="#contato">Orçamento</a></nav></div></header><main>
-<section className="hero" id="inicio"><div className="container hero-grid"><div><h1>Regulação sem burocracia.<br/><span>Resultados com segurança.</span></h1><p>Soluções regulatórias completas para empresas que querem entrar ou expandir no Brasil com conformidade junto à ANVISA e ao MAPA.</p><div className="actions"><a className="btn" href="#contato"><MessageCircle/>Fale com um especialista</a><a href="#servicos">Conheça os serviços <ArrowRight/></a></div></div><div className="visual"><div>ANVISA</div><Globe2/><div>MAPA</div></div></div></section>
-<section className="section" id="servicos"><div className="container"><Title label="Nossos serviços" text="Expertise regulatória para abrir caminhos."/><div className="services">{services.map((s,i)=><article key={s.title}><b>0{i+1}</b><h3>{s.title}</h3><p>{s.text}</p><a href="#contato">Fale com um especialista <ArrowRight/></a></article>)}</div></div></section>
-<section className="stats"><div className="container"><Stat icon={<Target/>} big="13+ anos" text="de experiência"/><Stat icon={<ShieldCheck/>} big="95%" text="de aprovação em 2025"/><Stat icon={<Globe2/>} big="40+ países" text="atendidos"/></div></section>
-<section className="section" id="processo"><div className="container"><Title label="Como trabalhamos" text="Um processo claro para resultados consistentes."/><div className="steps">{steps.map(([Icon,t],i)=><article key={t}><i>{i+1}</i><Icon/><h3>{t}</h3><p>Condução técnica, personalizada e comunicação clara em todas as etapas.</p></article>)}</div></div></section>
-<section className="section about" id="sobre"><div className="container about-grid"><div><p className="label">Sobre a LEGARE</p><h2>Parceria que transforma regulação em crescimento.</h2><p>A LEGARE é especializada em assessoria e consultoria regulatória junto à ANVISA e ao MAPA. Cada projeto recebe uma estratégia personalizada e acompanhamento direto de especialistas.</p></div><div className="panel">LEGARE<small>Regulatory Affairs<br/>Global Business</small></div></div></section>
-<section className="contact" id="contato"><div className="container"><div><p>Vamos conversar sobre o seu projeto?</p><h2>Transforme a complexidade regulatória em um caminho claro.</h2></div><div><a className="btn light" href="https://wa.me/5516991733137"><MessageCircle/>WhatsApp</a><a href="mailto:contato@LEGARE.com.br">contato@LEGARE.com.br</a><a href="tel:+5516991733137">(16) 99173-3137</a></div></div></section></main><footer><div className="container">LEGARE — Serviços e Soluções Regulatórias <span>© 2026</span></div></footer></>}
-function Title({label,text}:{label:string;text:string}){return <div className="title"><p>{label}</p><h2>{text}</h2></div>}function Stat({icon,big,text}:{icon:React.ReactNode;big:string;text:string}){return <div>{icon}<strong>{big}</strong><span>{text}</span></div>}
+import {
+  ArrowDownRight,
+  ArrowRight,
+  Check,
+  ClipboardCheck,
+  FileSearch,
+  MessageCircle,
+  Route,
+  ShieldCheck,
+} from "lucide-react";
+import { site } from "../data/site";
+import MobileNavigation from "../components/mobile-navigation";
+
+const services = [
+  {
+    number: "01",
+    title: "ANVISA",
+    description:
+      "Orientação para requisitos sanitários, regularização de produtos e atividades, e boas práticas.",
+  },
+  {
+    number: "02",
+    title: "MAPA",
+    description:
+      "Apoio regulatório para estabelecimentos, produtos, licenças e processos de renovação.",
+  },
+  {
+    number: "03",
+    title: "Estratégia regulatória",
+    description:
+      "Análise de enquadramento, requisitos e riscos para planejar os próximos passos do seu projeto.",
+  },
+];
+
+const steps = [
+  { icon: FileSearch, title: "Entendimento", number: "01" },
+  { icon: Route, title: "Estratégia", number: "02" },
+  { icon: ClipboardCheck, title: "Execução", number: "03" },
+  { icon: ShieldCheck, title: "Acompanhamento", number: "04" },
+];
+
+const navigation = [
+  { href: "#sobre", label: "Sobre" },
+  { href: "#servicos", label: "Serviços" },
+  { href: "#processo", label: "Como trabalhamos" },
+];
+
+export default function Home() {
+  return (
+    <>
+      <a className="skip-link" href="#conteudo">
+        Ir para o conteúdo
+      </a>
+
+      <header className="site-header">
+        <div className="container header-inner">
+          <a className="brand" href="#inicio" aria-label="Leggare, início">
+            <span className="brand-mark" aria-hidden="true">
+              <span />
+              <span />
+            </span>
+            <span className="brand-name">Leggare</span>
+          </a>
+
+          <nav className="desktop-nav" aria-label="Navegação principal">
+            {navigation.map((item) => (
+              <a href={item.href} key={item.href}>
+                {item.label}
+              </a>
+            ))}
+            <a className="button button-small" href="#contato">
+              Fale com a gente <ArrowRight aria-hidden="true" />
+            </a>
+          </nav>
+
+          <MobileNavigation items={navigation} />
+        </div>
+      </header>
+
+      <main id="conteudo">
+        <section className="hero" id="inicio" aria-labelledby="hero-title">
+          <div className="container hero-grid">
+            <div className="hero-copy">
+              <p className="eyebrow"><span /> Consultoria regulatória</p>
+              <h1 id="hero-title">
+                Clareza regulatória para <em>avançar com segurança.</em>
+              </h1>
+              <p className="hero-intro">
+                A Leggare ajuda empresas a entender caminhos, requisitos e próximos
+                passos em projetos regulatórios no Brasil.
+              </p>
+              <div className="hero-actions">
+                <a className="button" href="#contato">
+                  Converse com a Leggare <ArrowRight aria-hidden="true" />
+                </a>
+                <a className="text-link" href="#servicos">
+                  Conheça os serviços <ArrowDownRight aria-hidden="true" />
+                </a>
+              </div>
+            </div>
+
+            <div className="hero-art" aria-hidden="true">
+              <div className="art-ring art-ring-one" />
+              <div className="art-ring art-ring-two" />
+              <div className="art-core">
+                <span className="art-mark"><i /><i /><i /><i /></span>
+                <span className="art-caption">Regulação<br />com direção</span>
+              </div>
+              <span className="art-label art-label-top">ANVISA</span>
+              <span className="art-label art-label-bottom">MAPA</span>
+            </div>
+          </div>
+          <a className="scroll-cue" href="#servicos" aria-label="Rolar para os serviços">
+            <span />
+          </a>
+        </section>
+
+        <section className="section services-section" id="servicos" aria-labelledby="services-title">
+          <div className="container">
+            <div className="section-heading">
+              <p className="eyebrow">Como podemos ajudar</p>
+              <h2 id="services-title">Conhecimento técnico.<br /><em>Próximos passos claros.</em></h2>
+              <p>
+                Cada projeto começa pela compreensão do contexto e dos objetivos
+                da sua empresa.
+              </p>
+            </div>
+            <div className="service-grid">
+              {services.map((service) => (
+                <article className="service-card" key={service.number}>
+                  <span className="card-number">{service.number}</span>
+                  <h3>{service.title}</h3>
+                  <p>{service.description}</p>
+                  <a href="#contato" aria-label={`Converse sobre ${service.title}`}>
+                    Saiba mais <ArrowRight aria-hidden="true" />
+                  </a>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="process-section" id="processo" aria-labelledby="process-title">
+          <div className="container process-layout">
+            <div className="process-intro">
+              <p className="eyebrow">Nosso processo</p>
+              <h2 id="process-title">Um caminho bem definido, <em>do início ao próximo passo.</em></h2>
+              <p>
+                Você acompanha cada etapa com comunicação direta e orientação
+                alinhada ao seu projeto.
+              </p>
+            </div>
+            <ol className="process-list">
+              {steps.map(({ icon: Icon, title, number }) => (
+                <li key={number}>
+                  <span className="step-number">{number}</span>
+                  <span className="step-icon"><Icon aria-hidden="true" /></span>
+                  <span className="step-title">{title}</span>
+                  <Check className="step-check" aria-hidden="true" />
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        <section className="about-section section" id="sobre" aria-labelledby="about-title">
+          <div className="container about-grid">
+            <div className="about-monogram" aria-hidden="true">
+              <span className="monogram-line" />
+              <span>LG</span>
+              <small>Regulatory affairs<br />Global business</small>
+            </div>
+            <div className="about-copy">
+              <p className="eyebrow">Sobre a Leggare</p>
+              <h2 id="about-title">Regulação compreendida. <em>Decisões mais seguras.</em></h2>
+              <p>
+                Atuamos em assessoria e consultoria regulatória, aproximando
+                requisitos técnicos das decisões do dia a dia da sua empresa.
+                O trabalho é conduzido de forma personalizada, com atenção ao
+                contexto de cada projeto.
+              </p>
+              <a className="text-link" href="#contato">
+                Conte sobre o seu projeto <ArrowRight aria-hidden="true" />
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section className="contact-section" id="contato" aria-labelledby="contact-title">
+          <div className="container contact-layout">
+            <div>
+              <p className="eyebrow">Vamos conversar?</p>
+              <h2 id="contact-title">O próximo passo começa com uma conversa.</h2>
+            </div>
+            <div className="contact-actions">
+              <a className="button button-light" href={site.whatsappUrl}>
+                <MessageCircle aria-hidden="true" /> Chamar no WhatsApp
+              </a>
+              <a className="contact-email" href={`mailto:${site.email}`}>
+                {site.email}
+              </a>
+              <a className="contact-phone" href={`tel:${site.phone}`}>{site.phoneLabel}</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="site-footer">
+        <div className="container footer-inner">
+          <a className="brand footer-brand" href="#inicio" aria-label="Leggare, voltar ao início">
+            <span className="brand-mark" aria-hidden="true"><span /><span /></span>
+            <span className="brand-name">Leggare</span>
+          </a>
+          <p>Consultoria regulatória</p>
+          <span>© {new Date().getFullYear()} Leggare</span>
+        </div>
+      </footer>
+    </>
+  );
+}
