@@ -5,7 +5,7 @@ import ButterflyMark from "./butterfly-mark";
 
 type OrbitState = "idle" | "running" | "paused";
 
-const HALO_SPREAD = 160;
+const LIGHT_REACH = 280;
 
 export default function ButterflyInteraction() {
   const [orbitState, setOrbitState] = useState<OrbitState>("idle");
@@ -16,37 +16,39 @@ export default function ButterflyInteraction() {
     if (event.pointerType === "touch" || !controlRef.current) return;
 
     const control = controlRef.current;
+    const heroArt = event.currentTarget;
     const bounds = control.getBoundingClientRect();
     const dx = event.clientX - (bounds.left + bounds.width / 2);
     const dy = event.clientY - (bounds.top + bounds.height / 2);
     const distance = Math.hypot(dx, dy);
     const radius = Math.min(bounds.width, bounds.height) / 2;
 
-    if (distance > 1) {
+    if (distance > 0.5) {
       lastDirection.current = { x: dx / distance, y: dy / distance };
     }
 
-    const proximity = Math.max(0, Math.min(1, 1 - Math.max(0, distance - radius) / HALO_SPREAD));
+    const proximity = Math.max(0, Math.min(1, 1 - distance / (radius + LIGHT_REACH)));
     const intensity = proximity * proximity * (3 - 2 * proximity);
     const direction = lastDirection.current;
-    const edge = HALO_SPREAD + radius;
-    const focusX = edge + direction.x * radius;
-    const focusY = edge + direction.y * radius;
-    const haloX = focusX + direction.x * 18;
-    const haloY = focusY + direction.y * 18;
+    const angle = Math.atan2(direction.y, direction.x) * (180 / Math.PI);
+    const localX = `${(0.5 + direction.x * 0.5) * 100}%`;
+    const localY = `${(0.5 + direction.y * 0.5) * 100}%`;
 
-    control.style.setProperty("--glow-x", `${focusX}px`);
-    control.style.setProperty("--glow-y", `${focusY}px`);
-    control.style.setProperty("--glow-halo-x", `${haloX}px`);
-    control.style.setProperty("--glow-halo-y", `${haloY}px`);
-    control.style.setProperty("--glow-direction-x", `${direction.x}`);
-    control.style.setProperty("--glow-direction-y", `${direction.y}`);
-    control.style.setProperty("--glow-intensity", `${intensity}`);
+    heroArt.style.setProperty("--light-x", `${direction.x * radius}px`);
+    heroArt.style.setProperty("--light-y", `${direction.y * radius}px`);
+    heroArt.style.setProperty("--light-dir-x", `${direction.x}`);
+    heroArt.style.setProperty("--light-dir-y", `${direction.y}`);
+    heroArt.style.setProperty("--light-local-x", localX);
+    heroArt.style.setProperty("--light-local-y", localY);
+    heroArt.style.setProperty("--light-angle", `${angle}deg`);
+    heroArt.style.setProperty("--light-distance", `${distance}px`);
+    heroArt.style.setProperty("--light-intensity", `${intensity}`);
+    heroArt.style.setProperty("--light-scale", `${0.82 + intensity * 0.18}`);
   }
 
   function clearLight(event: PointerEvent<HTMLDivElement>) {
     if (event.pointerType !== "touch") {
-      controlRef.current?.style.setProperty("--glow-intensity", "0");
+      event.currentTarget.style.setProperty("--light-intensity", "0");
     }
   }
 
@@ -70,6 +72,11 @@ export default function ButterflyInteraction() {
     >
       <div className="art-ring art-ring-one" aria-hidden="true" />
       <div className="art-ring art-ring-two" aria-hidden="true" />
+      <div className="hero-light-field" aria-hidden="true">
+        <span className="hero-light-ambient" />
+        <span className="hero-light-bloom" />
+        <span className="hero-light-contact" />
+      </div>
       <div className="art-orbit" aria-hidden="true">
         <span className="art-label art-label-top">ANVISA</span>
         <span className="art-label art-label-bottom">MAPA</span>

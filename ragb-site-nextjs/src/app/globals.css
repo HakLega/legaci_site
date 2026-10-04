@@ -83,7 +83,8 @@ a:focus-visible, button:focus-visible {
   display: flex;
   min-height: 650px;
   align-items: center;
-  overflow: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
   background: var(--paper);
 }
 .hero::before {
@@ -94,6 +95,7 @@ a:focus-visible, button:focus-visible {
   height: 950px;
   border: 1px solid rgb(33 73 68 / 10%);
   border-radius: 50%;
+  clip-path: inset(0 260px 550px max(0px, calc(690px - 100vw)));
   content: "";
 }
 .hero-grid { position: relative; display: grid; grid-template-columns: 1.08fr .92fr; align-items: center; gap: 40px; padding-block: 96px 110px; }
@@ -112,15 +114,19 @@ a:focus-visible, button:focus-visible {
 .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 25px; margin-top: 34px; }
 .text-link { display: inline-flex; align-items: center; gap: 8px; color: var(--forest); font-size: 13px; font-weight: 700; }
 .text-link:hover { color: var(--clay); }
-.hero-art { position: relative; display: grid; min-height: 430px; place-items: center; isolation: isolate; }
+.hero-art { --light-x: 0px; --light-y: 0px; --light-dir-x: 1; --light-dir-y: 0; --light-local-x: 100%; --light-local-y: 50%; --light-angle: 0deg; --light-distance: 0px; --light-intensity: 0; --light-scale: .82; position: relative; display: grid; min-height: 430px; place-items: center; isolation: isolate; }
 .art-ring { position: absolute; z-index: 0; border: 1px solid rgb(33 73 68 / 20%); border-radius: 50%; }
 .art-ring-one { width: min(390px, 86%); aspect-ratio: 1; }
 .art-ring-two { width: min(300px, 66%); aspect-ratio: 1; border-style: dashed; opacity: .7; }
-.art-orbit { position: absolute; z-index: 1; inset: 0; pointer-events: none; }
-.butterfly-control { --glow-x: 370px; --glow-y: 265px; --glow-halo-x: 388px; --glow-halo-y: 265px; --glow-intensity: 0; --glow-direction-x: 1; --glow-direction-y: 0; position: relative; z-index: 2; display: flex; width: 210px; height: 210px; align-items: center; justify-content: center; flex-direction: column; padding: 18px; border: 1px solid rgb(255 255 255 / 25%); border-radius: 50%; color: var(--paper); background: var(--forest); box-shadow: 0 20px 60px rgb(22 55 51 / 15%); cursor: pointer; isolation: isolate; }
-.butterfly-control::before, .butterfly-control::after { position: absolute; border-radius: 50%; content: ""; opacity: var(--glow-intensity); pointer-events: none; transition: opacity .18s ease-out; }
-.butterfly-control::before { z-index: -1; inset: -160px; background: radial-gradient(ellipse 78px 82px at var(--glow-x) var(--glow-y), rgb(214 161 138 / 42%) 0, rgb(214 161 138 / 27%) 30%, rgb(247 245 239 / 13%) 58%, transparent 100%); filter: blur(12px); }
-.butterfly-control::after { z-index: -2; inset: -160px; background: radial-gradient(ellipse 165px 165px at var(--glow-halo-x) var(--glow-halo-y), rgb(247 245 239 / 19%) 0, rgb(214 161 138 / 12%) 36%, rgb(214 161 138 / 5%) 68%, transparent 100%); filter: blur(30px); }
+.hero-light-field { position: absolute; z-index: 1; inset: 0; overflow: visible; pointer-events: none; }
+.hero-light-field > span { position: absolute; display: block; pointer-events: none; transition: opacity .28s ease-out; }
+.hero-light-ambient { z-index: 0; top: calc(50% + var(--light-y) - 290px); left: calc(50% + var(--light-x)); width: 900px; height: 580px; transform: rotate(var(--light-angle)); transform-origin: 0 50%; background: radial-gradient(ellipse 100% 62% at 0% 50%, rgb(214 161 138 / 12%) 0, rgb(247 245 239 / 12%) 34%, rgb(190 207 194 / 8%) 62%, transparent 100%); filter: blur(74px); opacity: calc(var(--light-intensity) * .55); }
+.hero-light-bloom { z-index: 1; top: calc(50% + var(--light-y) - 170px); left: calc(50% + var(--light-x)); width: 660px; height: 340px; transform: rotate(var(--light-angle)) scaleX(var(--light-scale)); transform-origin: 0 50%; background: radial-gradient(ellipse 100% 72% at 0% 50%, rgb(214 161 138 / 38%) 0, rgb(214 161 138 / 27%) 17%, rgb(247 245 239 / 20%) 45%, rgb(190 207 194 / 11%) 73%, transparent 100%); filter: blur(48px); opacity: calc(var(--light-intensity) * .72); }
+.hero-light-contact { z-index: 2; top: calc(50% + var(--light-y) - 48px); left: calc(50% + var(--light-x) - 35px); width: 70px; height: 96px; transform: rotate(var(--light-angle)); background: radial-gradient(ellipse 48% 42% at 50% 50%, rgb(214 161 138 / 46%) 0, rgb(247 245 239 / 29%) 38%, transparent 100%); filter: blur(15px); opacity: calc(var(--light-intensity) * .84); }
+.art-orbit { position: absolute; z-index: 2; inset: 0; pointer-events: none; }
+.butterfly-control { position: relative; z-index: 3; display: flex; width: 210px; height: 210px; align-items: center; justify-content: center; flex-direction: column; padding: 18px; border: 1px solid rgb(255 255 255 / 25%); border-radius: 50%; color: var(--paper); background: var(--forest); box-shadow: 0 20px 60px rgb(22 55 51 / 15%); cursor: pointer; isolation: isolate; }
+.butterfly-control::before { position: absolute; z-index: 0; inset: 0; border-radius: 50%; background: radial-gradient(ellipse 58px 70px at var(--light-local-x) var(--light-local-y), rgb(214 161 138 / 30%) 0, rgb(247 245 239 / 16%) 42%, transparent 100%); content: ""; opacity: calc(var(--light-intensity) * .7); pointer-events: none; transition: opacity .28s ease-out; }
+.butterfly-illustration, .butterfly-caption { position: relative; z-index: 1; }
 .butterfly-illustration { width: 78px; height: 78px; color: #f4ead2; fill: currentColor; filter: drop-shadow(0 0 5px rgb(255 250 224 / 25%)); }
 .butterfly-caption { margin-top: 12px; font-family: Georgia, "Times New Roman", serif; font-size: 18px; line-height: 1.22; text-align: center; }
 .art-label { position: absolute; display: grid; width: 78px; height: 78px; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: var(--forest); background: var(--white); font-size: 10px; font-weight: 800; letter-spacing: .1em; }
@@ -255,6 +261,10 @@ a:focus-visible, button:focus-visible {
   .step-title { font-size: 18px; }
   .footer-inner { align-items: flex-start; flex-direction: column; gap: 12px; }
   .footer-meta { width: 100%; justify-content: space-between; gap: 12px; padding-top: 11px; border-top: 1px solid rgb(255 255 255 / 14%); }
+}
+@media (hover: none), (pointer: coarse) {
+  .hero-light-field { display: none; }
+  .butterfly-control::before { display: none; }
 }
 @keyframes orbit-satellites { to { transform: rotate(360deg); } }
 @keyframes keep-satellite-upright { to { transform: rotate(-360deg); } }
