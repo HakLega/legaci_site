@@ -39,7 +39,7 @@ export default function MobileNavigation({ items }: { items: NavigationItem[] })
               {item.label}
             </a>
           ))}
-          <a href="#contato" onClick={() => setIsOpen(false)}>Fale com a gente</a>
+          <a href="#contato" onClick={() => setIsOpen(false)}>Fale com a Leggare</a>
         </nav>
       )}
     </div>

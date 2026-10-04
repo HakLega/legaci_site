@@ -3,8 +3,14 @@ import type { ReactNode } from "react";
 import "./globals.css";
 import { site } from "../data/site";
 
-const description =
-  "Consultoria regulatória para empresas que buscam clareza sobre requisitos, estratégia e próximos passos no Brasil.";
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": ["Organization", "ProfessionalService"],
+  name: site.name,
+  url: site.url,
+  description: site.description,
+  email: site.email,
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -12,7 +18,7 @@ export const metadata: Metadata = {
     default: "Leggare | Consultoria regulatória",
     template: "%s | Leggare",
   },
-  description,
+  description: site.description,
   alternates: {
     canonical: "/",
   },
@@ -22,12 +28,12 @@ export const metadata: Metadata = {
     url: "/",
     siteName: site.name,
     title: "Leggare | Consultoria regulatória",
-    description,
+    description: site.description,
   },
   twitter: {
     card: "summary_large_image",
     title: "Leggare | Consultoria regulatória",
-    description,
+    description: site.description,
     images: ["/opengraph-image"],
   },
   robots: {
@@ -39,7 +45,15 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="pt-BR">
-      <body>{children}</body>
+      <body>
+        {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema).replace(/</g, "\\u003c"),
+          }}
+        />
+      </body>
     </html>
   );
 }

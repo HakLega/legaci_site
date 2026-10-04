@@ -1,8 +1,19 @@
+const phone = "+5516991733137";
+const whatsappNumber = phone.replace(/\D/g, "");
+const whatsappMessage =
+  "Olá! Conheci a Leggare pelo site e gostaria de conversar sobre um projeto regulatório.";
+
 export const site = {
   name: "Leggare",
   url: "https://leggare.com",
+  description:
+    "Consultoria regulatória para empresas que buscam clareza sobre requisitos, estratégia e próximos passos no Brasil.",
+  heroDescription:
+    "A Leggare ajuda empresas a entender caminhos, requisitos e próximos passos em projetos regulatórios no Brasil.",
   email: "regulatorio@leggare.com",
-  phone: "+5516991733137",
+  phone,
   phoneLabel: "(16) 99173-3137",
-  whatsappUrl: "https://wa.me/5516991733137",
+  whatsappNumber,
+  whatsappMessage,
+  whatsappUrl: `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`,
 } as const;

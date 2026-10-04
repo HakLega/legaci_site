@@ -68,7 +68,7 @@ export default function Home() {
               </a>
             ))}
             <a className="button button-small" href="#contato">
-              Fale com a gente <ArrowRight aria-hidden="true" />
+              Fale com a Leggare <ArrowRight aria-hidden="true" />
             </a>
           </nav>
 
@@ -84,13 +84,10 @@ export default function Home() {
               <h1 id="hero-title">
                 Clareza regulatória para <em>avançar com segurança.</em>
               </h1>
-              <p className="hero-intro">
-                A Leggare ajuda empresas a entender caminhos, requisitos e próximos
-                passos em projetos regulatórios no Brasil.
-              </p>
+              <p className="hero-intro">{site.heroDescription}</p>
               <div className="hero-actions">
                 <a className="button" href="#contato">
-                  Converse com a Leggare <ArrowRight aria-hidden="true" />
+                  Fale com a Leggare <ArrowRight aria-hidden="true" />
                 </a>
                 <a className="text-link" href="#servicos">
                   Conheça os serviços <ArrowDownRight aria-hidden="true" />
@@ -121,8 +118,8 @@ export default function Home() {
                   <span className="card-number">{service.number}</span>
                   <h3>{service.title}</h3>
                   <p>{service.description}</p>
-                  <a href="#contato" aria-label={`Converse sobre ${service.title}`}>
-                    Saiba mais <ArrowRight aria-hidden="true" />
+                  <a href="#contato" aria-label={`Falar sobre ${service.title}`}>
+                    Falar sobre este serviço <ArrowRight aria-hidden="true" />
                   </a>
                 </article>
               ))}
@@ -170,7 +167,7 @@ export default function Home() {
                 contexto de cada projeto.
               </p>
               <a className="text-link" href="#contato">
-                Conte sobre o seu projeto <ArrowRight aria-hidden="true" />
+                Fale com a Leggare <ArrowRight aria-hidden="true" />
               </a>
             </div>
           </div>
@@ -184,7 +181,7 @@ export default function Home() {
             </div>
             <div className="contact-actions">
               <a className="button button-light" href={site.whatsappUrl}>
-                <MessageCircle aria-hidden="true" /> Chamar no WhatsApp
+                <MessageCircle aria-hidden="true" /> Conversar pelo WhatsApp
               </a>
               <a className="contact-email" href={`mailto:${site.email}`}>
                 {site.email}
@@ -201,8 +198,10 @@ export default function Home() {
             <ButterflyMark className="brand-mark" />
             <span className="brand-name">Leggare</span>
           </a>
-          <p>Consultoria regulatória</p>
-          <span>© {new Date().getFullYear()} Leggare</span>
+          <div className="footer-meta">
+            <p>Consultoria regulatória</p>
+            <span>© {new Date().getFullYear()} Leggare</span>
+          </div>
         </div>
       </footer>
     </>
