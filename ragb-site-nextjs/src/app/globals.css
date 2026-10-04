@@ -117,9 +117,10 @@ a:focus-visible, button:focus-visible {
 .art-ring-one { width: min(390px, 86%); aspect-ratio: 1; }
 .art-ring-two { width: min(300px, 66%); aspect-ratio: 1; border-style: dashed; opacity: .7; }
 .art-orbit { position: absolute; z-index: 1; inset: 0; pointer-events: none; }
-.butterfly-control { --rim-x: 95%; --rim-y: 50%; position: relative; z-index: 2; display: flex; width: 210px; height: 210px; align-items: center; justify-content: center; flex-direction: column; padding: 18px; border: 1px solid rgb(255 255 255 / 25%); border-radius: 50%; color: var(--paper); background: var(--forest); box-shadow: 0 20px 60px rgb(22 55 51 / 15%); cursor: pointer; isolation: isolate; }
-.butterfly-control::before { position: absolute; z-index: -1; inset: -8px; border-radius: 50%; background: radial-gradient(circle at var(--rim-x) var(--rim-y), rgb(214 161 138 / 42%) 0, rgb(214 161 138 / 25%) 9px, rgb(214 161 138 / 9%) 22px, transparent 38px); content: ""; filter: blur(6px); opacity: 0; pointer-events: none; transition: opacity .2s ease; -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 14px), #000 calc(100% - 13px)); mask: radial-gradient(farthest-side, transparent calc(100% - 14px), #000 calc(100% - 13px)); }
-.butterfly-control:hover::before, .butterfly-control:focus-visible::before, .butterfly-control:active::before { opacity: 1; }
+.butterfly-control { --glow-x: 370px; --glow-y: 265px; --glow-halo-x: 388px; --glow-halo-y: 265px; --glow-intensity: 0; --glow-direction-x: 1; --glow-direction-y: 0; position: relative; z-index: 2; display: flex; width: 210px; height: 210px; align-items: center; justify-content: center; flex-direction: column; padding: 18px; border: 1px solid rgb(255 255 255 / 25%); border-radius: 50%; color: var(--paper); background: var(--forest); box-shadow: 0 20px 60px rgb(22 55 51 / 15%); cursor: pointer; isolation: isolate; }
+.butterfly-control::before, .butterfly-control::after { position: absolute; border-radius: 50%; content: ""; opacity: var(--glow-intensity); pointer-events: none; transition: opacity .18s ease-out; }
+.butterfly-control::before { z-index: -1; inset: -160px; background: radial-gradient(ellipse 78px 82px at var(--glow-x) var(--glow-y), rgb(214 161 138 / 42%) 0, rgb(214 161 138 / 27%) 30%, rgb(247 245 239 / 13%) 58%, transparent 100%); filter: blur(12px); }
+.butterfly-control::after { z-index: -2; inset: -160px; background: radial-gradient(ellipse 165px 165px at var(--glow-halo-x) var(--glow-halo-y), rgb(247 245 239 / 19%) 0, rgb(214 161 138 / 12%) 36%, rgb(214 161 138 / 5%) 68%, transparent 100%); filter: blur(30px); }
 .butterfly-illustration { width: 78px; height: 78px; color: #f4ead2; fill: currentColor; filter: drop-shadow(0 0 5px rgb(255 250 224 / 25%)); }
 .butterfly-caption { margin-top: 12px; font-family: Georgia, "Times New Roman", serif; font-size: 18px; line-height: 1.22; text-align: center; }
 .art-label { position: absolute; display: grid; width: 78px; height: 78px; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: var(--forest); background: var(--white); font-size: 10px; font-weight: 800; letter-spacing: .1em; }
@@ -257,10 +258,12 @@ a:focus-visible, button:focus-visible {
 }
 @keyframes orbit-satellites { to { transform: rotate(360deg); } }
 @keyframes keep-satellite-upright { to { transform: rotate(-360deg); } }
-.hero-art.is-spinning .art-orbit { animation: orbit-satellites 18s linear infinite; }
-.hero-art.is-spinning .art-label { animation: keep-satellite-upright 18s linear infinite; }
+.hero-art.has-started .art-orbit { animation: orbit-satellites 18s linear infinite; }
+.hero-art.has-started .art-label { animation: keep-satellite-upright 18s linear infinite; }
+.hero-art.is-spinning .art-orbit, .hero-art.is-spinning .art-label { animation-play-state: running; }
+.hero-art.is-paused .art-orbit, .hero-art.is-paused .art-label { animation-play-state: paused; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
-  .hero-art.is-spinning .art-orbit, .hero-art.is-spinning .art-label { animation: none; }
-  .hero-art.is-spinning .art-ring { border-color: rgb(165 95 67 / 38%); }
+  .hero-art.has-started .art-orbit, .hero-art.has-started .art-label { animation: none; }
+  .hero-art.has-started .art-ring { border-color: rgb(165 95 67 / 38%); }
 }
