@@ -98,13 +98,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="hero-art">
-              <div className="art-ring art-ring-one" />
-              <div className="art-ring art-ring-two" />
-              <ButterflyInteraction />
-              <span className="art-label art-label-top">ANVISA</span>
-              <span className="art-label art-label-bottom">MAPA</span>
-            </div>
+            <ButterflyInteraction />
           </div>
           <a className="scroll-cue" href="#servicos" aria-label="Rolar para os serviços">
             <span />

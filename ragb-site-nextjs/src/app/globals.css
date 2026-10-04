@@ -53,7 +53,7 @@ a:focus-visible, button:focus-visible {
 }
 .header-inner { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
 .brand { display: inline-flex; align-items: center; gap: 11px; width: fit-content; }
-.brand-mark { width: 31px; height: 31px; color: var(--forest); stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+.brand-mark { width: 31px; height: 31px; color: var(--forest); fill: currentColor; }
 .brand-name { font-family: Georgia, "Times New Roman", serif; font-size: 28px; letter-spacing: -.055em; line-height: 1; }
 .desktop-nav { display: flex; align-items: center; gap: 34px; font-size: 13px; font-weight: 700; }
 .desktop-nav > a:not(.button) { transition: color .18s ease; }
@@ -112,19 +112,15 @@ a:focus-visible, button:focus-visible {
 .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 25px; margin-top: 34px; }
 .text-link { display: inline-flex; align-items: center; gap: 8px; color: var(--forest); font-size: 13px; font-weight: 700; }
 .text-link:hover { color: var(--clay); }
-.hero-art { position: relative; display: grid; min-height: 430px; place-items: center; }
-.art-ring { position: absolute; border: 1px solid rgb(33 73 68 / 20%); border-radius: 50%; }
+.hero-art { --light-x: 84%; --light-y: 15%; position: relative; display: grid; min-height: 430px; place-items: center; isolation: isolate; }
+.art-light { position: absolute; z-index: 0; inset: 0; pointer-events: none; background: radial-gradient(circle 145px at var(--light-x) var(--light-y), rgb(196 169 106 / 70%) 0, rgb(214 193 143 / 38%) 38%, rgb(217 201 162 / 12%) 72%, transparent 100%); filter: blur(16px); opacity: .88; transition: opacity .25s ease; }
+.art-ring { position: absolute; z-index: 0; border: 1px solid rgb(33 73 68 / 20%); border-radius: 50%; }
 .art-ring-one { width: min(390px, 86%); aspect-ratio: 1; }
 .art-ring-two { width: min(300px, 66%); aspect-ratio: 1; border-style: dashed; opacity: .7; }
-.butterfly-control { --pointer-x: 50%; --pointer-y: 44%; position: relative; z-index: 1; display: flex; width: 230px; height: 230px; align-items: center; justify-content: center; flex-direction: column; overflow: hidden; padding: 18px; border: 1px solid rgb(255 255 255 / 25%); border-radius: 50%; color: var(--paper); background: var(--forest); box-shadow: 0 20px 60px rgb(22 55 51 / 15%); cursor: pointer; isolation: isolate; }
-.butterfly-control::before { position: absolute; z-index: -1; inset: 0; border-radius: inherit; background: radial-gradient(ellipse 44% 42% at var(--pointer-x) var(--pointer-y), rgb(255 250 224 / 42%), transparent 100%); content: ""; opacity: .66; transition: opacity .35s ease; }
-.butterfly-control:hover::before, .butterfly-control:focus-visible::before { opacity: 1; }
-.butterfly-control.is-awake::before { opacity: 1; background: radial-gradient(ellipse 50% 50% at var(--pointer-x) var(--pointer-y), rgb(242 225 175 / 55%), rgb(255 255 255 / 12%) 56%, transparent 100%); }
-.butterfly-illustration { width: 78px; height: 78px; color: #f4ead2; stroke: currentColor; stroke-width: 2.3; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 7px rgb(255 250 224 / 38%)); transition: color .3s ease, filter .3s ease, transform .3s ease; }
-.butterfly-control:hover .butterfly-illustration { transform: translateY(-2px); }
-.butterfly-control.is-awake .butterfly-illustration { color: #fff4ce; filter: drop-shadow(0 0 15px rgb(255 242 191 / 88%)); }
+.art-orbit { position: absolute; z-index: 1; inset: 0; pointer-events: none; }
+.butterfly-control { position: relative; z-index: 2; display: flex; width: 210px; height: 210px; align-items: center; justify-content: center; flex-direction: column; padding: 18px; border: 1px solid rgb(255 255 255 / 25%); border-radius: 50%; color: var(--paper); background: var(--forest); box-shadow: 0 20px 60px rgb(22 55 51 / 15%); cursor: pointer; }
+.butterfly-illustration { width: 78px; height: 78px; color: #f4ead2; fill: currentColor; filter: drop-shadow(0 0 5px rgb(255 250 224 / 25%)); }
 .butterfly-caption { margin-top: 12px; font-family: Georgia, "Times New Roman", serif; font-size: 18px; line-height: 1.22; text-align: center; }
-.butterfly-hint { margin-top: 8px; color: rgb(247 245 239 / 72%); font-size: 9px; letter-spacing: .08em; text-transform: uppercase; }
 .art-label { position: absolute; display: grid; width: 78px; height: 78px; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: var(--forest); background: var(--white); font-size: 10px; font-weight: 800; letter-spacing: .1em; }
 .art-label-top { top: 40px; right: 13%; }
 .art-label-bottom { bottom: 35px; left: 13%; }
@@ -166,7 +162,7 @@ a:focus-visible, button:focus-visible {
 .about-monogram { position: relative; display: flex; min-height: 370px; align-items: center; justify-content: center; flex-direction: column; overflow: hidden; color: var(--paper); background: var(--forest); }
 .about-monogram::before, .about-monogram::after { position: absolute; width: 280px; height: 280px; border: 1px solid rgb(255 255 255 / 18%); border-radius: 50%; content: ""; }
 .about-monogram::after { width: 210px; height: 210px; border-style: dashed; }
-.about-butterfly { z-index: 1; width: 120px; height: 120px; color: var(--paper); stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.about-butterfly { z-index: 1; width: 120px; height: 120px; color: var(--paper); fill: currentColor; }
 .about-monogram small { z-index: 1; margin-top: 18px; padding-left: 13px; border-left: 1px solid #d6a18a; color: #e3e9e2; font-size: 10px; letter-spacing: .16em; line-height: 1.7; text-transform: uppercase; }
 .monogram-line { position: absolute; z-index: 1; top: 28px; left: 28px; width: 28px; height: 1px; background: #d6a18a; }
 .about-copy { max-width: 580px; }
@@ -220,7 +216,7 @@ a:focus-visible, button:focus-visible {
   .hero-grid { grid-template-columns: 1fr; gap: 5px; padding-block: 74px 80px; }
   .hero h1 { max-width: 630px; font-size: clamp(46px, 11vw, 70px); }
   .hero-intro { font-size: 16px; }
-  .hero-art { min-height: 300px; }
+  .hero-art { min-height: 360px; margin-top: 55px; }
   .art-ring-one { width: 280px; }
   .art-ring-two { width: 215px; }
   .butterfly-control { width: 170px; height: 170px; }
@@ -255,7 +251,12 @@ a:focus-visible, button:focus-visible {
   .step-title { font-size: 18px; }
   .footer-inner { align-items: flex-start; flex-direction: column; gap: 11px; }
 }
+@keyframes orbit-satellites { to { transform: rotate(360deg); } }
+@keyframes keep-satellite-upright { to { transform: rotate(-360deg); } }
+.hero-art.is-spinning .art-orbit { animation: orbit-satellites 18s linear infinite; }
+.hero-art.is-spinning .art-label { animation: keep-satellite-upright 18s linear infinite; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
-  .butterfly-control:hover .butterfly-illustration { transform: none; }
+  .hero-art.is-spinning .art-orbit, .hero-art.is-spinning .art-label { animation: none; }
+  .hero-art.is-spinning .art-ring { border-color: rgb(165 95 67 / 38%); }
 }

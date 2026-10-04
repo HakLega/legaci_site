@@ -33,13 +33,13 @@ export default function OpenGraphImage() {
           </div>
         </div>
         <div style={{ display: "flex", width: 220, height: 220, alignItems: "center", justifyContent: "center", border: "1px solid #91aaa0", borderRadius: "50%" }}>
-          <svg width="112" height="112" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g stroke="#d6a18a" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M39 39C27 15 12 11 9 24c-3 13 10 24 28 22" />
-              <path d="M41 39c12-24 27-28 30-15 3 13-10 24-28 22" />
-              <path d="M38 43C23 36 15 42 19 53c4 10 14 12 21-3" />
-              <path d="M42 43c15-7 23-1 19 10-4 10-14 12-21-3" />
-              <path d="M40 36v22M39 35c-3-7-7-10-12-11M41 35c3-7 7-10 12-11" />
+          <svg width="112" height="112" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <g fill="#d6a18a">
+              <path d="M56 77C54 60 50 41 35 25 27 17 18 11 8 8c8 18 8 37 19 48 8 9 19 11 27 16 4 2 6 4 2 5Z" />
+              <path d="M55 73c-8-8-17-12-26-9C15 68 9 80 10 98c17-1 31-6 41-16 4-4 6-7 4-9Z" />
+              <path d="M55 82c12-15 20-32 17-51M58 82c15-12 25-25 31-39" fill="none" stroke="#d6a18a" strokeWidth="3.6" strokeLinecap="round" />
+              <circle cx="72" cy="29" r="3.5" />
+              <circle cx="90" cy="41" r="3.5" />
             </g>
           </svg>
         </div>
