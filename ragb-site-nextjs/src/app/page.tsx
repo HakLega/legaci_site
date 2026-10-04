@@ -10,6 +10,8 @@ import {
 } from "lucide-react";
 import { site } from "../data/site";
 import MobileNavigation from "../components/mobile-navigation";
+import ButterflyInteraction from "../components/butterfly-interaction";
+import ButterflyMark from "../components/butterfly-mark";
 
 const services = [
   {
@@ -55,10 +57,7 @@ export default function Home() {
       <header className="site-header">
         <div className="container header-inner">
           <a className="brand" href="#inicio" aria-label="Leggare, início">
-            <span className="brand-mark" aria-hidden="true">
-              <span />
-              <span />
-            </span>
+            <ButterflyMark className="brand-mark" />
             <span className="brand-name">Leggare</span>
           </a>
 
@@ -99,13 +98,10 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="hero-art" aria-hidden="true">
+            <div className="hero-art">
               <div className="art-ring art-ring-one" />
               <div className="art-ring art-ring-two" />
-              <div className="art-core">
-                <span className="art-mark"><i /><i /><i /><i /></span>
-                <span className="art-caption">Regulação<br />com direção</span>
-              </div>
+              <ButterflyInteraction />
               <span className="art-label art-label-top">ANVISA</span>
               <span className="art-label art-label-bottom">MAPA</span>
             </div>
@@ -167,8 +163,8 @@ export default function Home() {
           <div className="container about-grid">
             <div className="about-monogram" aria-hidden="true">
               <span className="monogram-line" />
-              <span>LG</span>
-              <small>Regulatory affairs<br />Global business</small>
+              <ButterflyMark className="about-butterfly" />
+              <small>Consultoria Regulatória</small>
             </div>
             <div className="about-copy">
               <p className="eyebrow">Sobre a Leggare</p>
@@ -208,7 +204,7 @@ export default function Home() {
       <footer className="site-footer">
         <div className="container footer-inner">
           <a className="brand footer-brand" href="#inicio" aria-label="Leggare, voltar ao início">
-            <span className="brand-mark" aria-hidden="true"><span /><span /></span>
+            <ButterflyMark className="brand-mark" />
             <span className="brand-name">Leggare</span>
           </a>
           <p>Consultoria regulatória</p>

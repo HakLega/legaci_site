@@ -33,9 +33,15 @@ export default function OpenGraphImage() {
           </div>
         </div>
         <div style={{ display: "flex", width: 220, height: 220, alignItems: "center", justifyContent: "center", border: "1px solid #91aaa0", borderRadius: "50%" }}>
-          <div style={{ display: "flex", width: 140, height: 140, alignItems: "center", justifyContent: "center", border: "1px dashed #d6a18a", borderRadius: "50%", color: "#d6a18a", fontSize: 56 }}>
-            LG
-          </div>
+          <svg width="112" height="112" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g stroke="#d6a18a" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M39 39C27 15 12 11 9 24c-3 13 10 24 28 22" />
+              <path d="M41 39c12-24 27-28 30-15 3 13-10 24-28 22" />
+              <path d="M38 43C23 36 15 42 19 53c4 10 14 12 21-3" />
+              <path d="M42 43c15-7 23-1 19 10-4 10-14 12-21-3" />
+              <path d="M40 36v22M39 35c-3-7-7-10-12-11M41 35c3-7 7-10 12-11" />
+            </g>
+          </svg>
         </div>
       </div>
     ),
