@@ -33,9 +33,17 @@ export default function ButterflyInteraction() {
     const angle = Math.atan2(direction.y, direction.x) * (180 / Math.PI);
     const localX = `${(0.5 + direction.x * 0.5) * 100}%`;
     const localY = `${(0.5 + direction.y * 0.5) * 100}%`;
+    const contactX = direction.x * radius;
+    const contactY = direction.y * radius;
+    const bloomOffset = 110;
+    const ambientOffset = 190;
 
-    heroArt.style.setProperty("--light-x", `${direction.x * radius}px`);
-    heroArt.style.setProperty("--light-y", `${direction.y * radius}px`);
+    heroArt.style.setProperty("--light-contact-x", `${contactX}px`);
+    heroArt.style.setProperty("--light-contact-y", `${contactY}px`);
+    heroArt.style.setProperty("--light-bloom-x", `${contactX + direction.x * bloomOffset}px`);
+    heroArt.style.setProperty("--light-bloom-y", `${contactY + direction.y * bloomOffset}px`);
+    heroArt.style.setProperty("--light-ambient-x", `${contactX + direction.x * ambientOffset}px`);
+    heroArt.style.setProperty("--light-ambient-y", `${contactY + direction.y * ambientOffset}px`);
     heroArt.style.setProperty("--light-dir-x", `${direction.x}`);
     heroArt.style.setProperty("--light-dir-y", `${direction.y}`);
     heroArt.style.setProperty("--light-local-x", localX);
@@ -43,7 +51,7 @@ export default function ButterflyInteraction() {
     heroArt.style.setProperty("--light-angle", `${angle}deg`);
     heroArt.style.setProperty("--light-distance", `${distance}px`);
     heroArt.style.setProperty("--light-intensity", `${intensity}`);
-    heroArt.style.setProperty("--light-scale", `${0.82 + intensity * 0.18}`);
+    heroArt.style.setProperty("--light-scale", `${0.9 + intensity * 0.1}`);
   }
 
   function clearLight(event: PointerEvent<HTMLDivElement>) {
