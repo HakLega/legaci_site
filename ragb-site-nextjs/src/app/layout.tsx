@@ -10,6 +10,7 @@ const organizationSchema = {
   url: site.url,
   description: site.description,
   email: site.email,
+  telephone: site.phone,
 };
 
 export const metadata: Metadata = {

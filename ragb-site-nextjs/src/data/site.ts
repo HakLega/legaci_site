@@ -9,7 +9,7 @@ export const site = {
   description:
     "Consultoria regulatória para empresas que buscam clareza sobre requisitos, estratégia e próximos passos no Brasil.",
   heroDescription:
-    "A Leggare ajuda empresas a entender caminhos, requisitos e próximos passos em projetos regulatórios no Brasil.",
+    "A Leggare assessora empresas na estruturação e condução de projetos regulatórios, transformando requisitos técnicos em caminhos claros para cada operação.",
   email: "regulatorio@leggare.com",
   phone,
   phoneLabel: "(16) 99173-3137",
