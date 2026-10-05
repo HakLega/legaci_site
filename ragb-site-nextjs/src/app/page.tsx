@@ -57,8 +57,9 @@ export default function Home() {
       <header className="site-header">
         <div className="container header-inner">
           <a className="brand" href="#inicio" aria-label="Leggare, início">
-            <ButterflyMark className="brand-mark" />
-            <span className="brand-name">Leggare</span>
+            <span className="brand-name">
+              Leggar<span className="brand-final-letter">e<ButterflyMark className="brand-mark-perched" /></span>
+            </span>
           </a>
 
           <nav className="desktop-nav" aria-label="Navegação principal">
