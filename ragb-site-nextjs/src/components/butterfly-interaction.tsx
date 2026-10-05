@@ -72,8 +72,8 @@ export default function ButterflyInteraction() {
       <div className="art-ring art-ring-one" aria-hidden="true" />
       <div className="art-ring art-ring-two" aria-hidden="true" />
       <div className="hero-light-field" aria-hidden="true">
-        <span className="hero-light-beam-wide" />
-        <span className="hero-light-beam-core" />
+        <span className="hero-light-ambient" />
+        <span className="hero-light-bloom" />
         <span className="hero-light-contact" />
       </div>
       <div className="art-orbit" aria-hidden="true">
