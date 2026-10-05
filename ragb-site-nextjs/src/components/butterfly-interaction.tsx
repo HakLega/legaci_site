@@ -35,21 +35,12 @@ export default function ButterflyInteraction() {
     const localY = `${(0.5 + direction.y * 0.5) * 100}%`;
     const contactX = direction.x * radius;
     const contactY = direction.y * radius;
-    const bloomOffset = 110;
-    const ambientOffset = 190;
 
     heroArt.style.setProperty("--light-contact-x", `${contactX}px`);
     heroArt.style.setProperty("--light-contact-y", `${contactY}px`);
-    heroArt.style.setProperty("--light-bloom-x", `${contactX + direction.x * bloomOffset}px`);
-    heroArt.style.setProperty("--light-bloom-y", `${contactY + direction.y * bloomOffset}px`);
-    heroArt.style.setProperty("--light-ambient-x", `${contactX + direction.x * ambientOffset}px`);
-    heroArt.style.setProperty("--light-ambient-y", `${contactY + direction.y * ambientOffset}px`);
-    heroArt.style.setProperty("--light-dir-x", `${direction.x}`);
-    heroArt.style.setProperty("--light-dir-y", `${direction.y}`);
     heroArt.style.setProperty("--light-local-x", localX);
     heroArt.style.setProperty("--light-local-y", localY);
     heroArt.style.setProperty("--light-angle", `${angle}deg`);
-    heroArt.style.setProperty("--light-distance", `${distance}px`);
     heroArt.style.setProperty("--light-intensity", `${intensity}`);
     heroArt.style.setProperty("--light-scale", `${0.9 + intensity * 0.1}`);
   }
@@ -81,8 +72,8 @@ export default function ButterflyInteraction() {
       <div className="art-ring art-ring-one" aria-hidden="true" />
       <div className="art-ring art-ring-two" aria-hidden="true" />
       <div className="hero-light-field" aria-hidden="true">
-        <span className="hero-light-ambient" />
-        <span className="hero-light-bloom" />
+        <span className="hero-light-beam-wide" />
+        <span className="hero-light-beam-core" />
         <span className="hero-light-contact" />
       </div>
       <div className="art-orbit" aria-hidden="true">
