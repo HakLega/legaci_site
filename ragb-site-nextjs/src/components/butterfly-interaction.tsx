@@ -17,6 +17,7 @@ export default function ButterflyInteraction() {
 
     const control = controlRef.current;
     const heroArt = event.currentTarget;
+    const artBounds = heroArt.getBoundingClientRect();
     const bounds = control.getBoundingClientRect();
     const dx = event.clientX - (bounds.left + bounds.width / 2);
     const dy = event.clientY - (bounds.top + bounds.height / 2);
@@ -38,6 +39,10 @@ export default function ButterflyInteraction() {
 
     heroArt.style.setProperty("--light-contact-x", `${contactX}px`);
     heroArt.style.setProperty("--light-contact-y", `${contactY}px`);
+    heroArt.style.setProperty("--light-bloom-x", `${contactX + direction.x * 90}px`);
+    heroArt.style.setProperty("--light-bloom-y", `${contactY + direction.y * 90}px`);
+    heroArt.style.setProperty("--pointer-x", `${event.clientX - artBounds.left}px`);
+    heroArt.style.setProperty("--pointer-y", `${event.clientY - artBounds.top}px`);
     heroArt.style.setProperty("--light-local-x", localX);
     heroArt.style.setProperty("--light-local-y", localY);
     heroArt.style.setProperty("--light-angle", `${angle}deg`);
@@ -72,8 +77,9 @@ export default function ButterflyInteraction() {
       <div className="art-ring art-ring-one" aria-hidden="true" />
       <div className="art-ring art-ring-two" aria-hidden="true" />
       <div className="hero-light-field" aria-hidden="true">
-        <span className="hero-light-ambient" />
+        <span className="hero-light-field-glow" />
         <span className="hero-light-bloom" />
+        <span className="hero-light-wrap" />
         <span className="hero-light-contact" />
       </div>
       <div className="art-orbit" aria-hidden="true">
