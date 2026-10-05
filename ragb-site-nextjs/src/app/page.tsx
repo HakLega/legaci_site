@@ -12,6 +12,7 @@ import { site } from "../data/site";
 import MobileNavigation from "../components/mobile-navigation";
 import ButterflyInteraction from "../components/butterfly-interaction";
 import ButterflyMark from "../components/butterfly-mark";
+import BrandWordmark from "../components/brand-wordmark";
 
 const services = [
   {
@@ -57,9 +58,7 @@ export default function Home() {
       <header className="site-header">
         <div className="container header-inner">
           <a className="brand" href="#inicio" aria-label="Leggare, início">
-            <span className="brand-name">
-              Leggar<span className="brand-final-letter">e<ButterflyMark className="brand-mark-perched" /></span>
-            </span>
+            <BrandWordmark />
           </a>
 
           <nav className="desktop-nav" aria-label="Navegação principal">
@@ -196,8 +195,7 @@ export default function Home() {
       <footer className="site-footer">
         <div className="container footer-inner">
           <a className="brand footer-brand" href="#inicio" aria-label="Leggare, voltar ao início">
-            <ButterflyMark className="brand-mark" />
-            <span className="brand-name">Leggare</span>
+            <BrandWordmark />
           </a>
           <div className="footer-meta">
             <p>Consultoria regulatória</p>
