@@ -17,18 +17,12 @@ import BrandWordmark from "../components/brand-wordmark";
 const services = [
   {
     number: "01",
-    title: "ANVISA",
-    description:
-      "Orientação para requisitos sanitários, regularização de produtos e atividades, e boas práticas.",
-  },
-  {
-    number: "02",
     title: "MAPA",
     description:
       "Apoio regulatório para estabelecimentos, produtos, licenças e processos de renovação.",
   },
   {
-    number: "03",
+    number: "02",
     title: "Estratégia regulatória",
     description:
       "Análise de enquadramento, requisitos e riscos para planejar os próximos passos do seu projeto.",

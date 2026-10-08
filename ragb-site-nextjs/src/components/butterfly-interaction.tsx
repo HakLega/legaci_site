@@ -24,7 +24,6 @@ export default function ButterflyInteraction() {
       <div className="art-ring art-ring-one" aria-hidden="true" />
       <div className="art-ring art-ring-two" aria-hidden="true" />
       <div className="art-orbit" aria-hidden="true">
-        <span className="art-label art-label-top">ANVISA</span>
         <span className="art-label art-label-bottom">MAPA</span>
       </div>
       <button

@@ -127,7 +127,6 @@ a:focus-visible, button:focus-visible {
 .butterfly-illustration { width: 78px; height: 78px; color: #f4ead2; fill: currentColor; filter: drop-shadow(0 0 5px rgb(255 250 224 / 25%)); }
 .butterfly-caption { margin-top: 12px; font-family: Georgia, "Times New Roman", serif; font-size: 18px; line-height: 1.22; text-align: center; }
 .art-label { position: absolute; display: grid; width: 78px; height: 78px; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: var(--forest); background: var(--white); font-size: 10px; font-weight: 800; letter-spacing: .1em; }
-.art-label-top { top: 40px; right: 13%; }
 .art-label-bottom { bottom: 35px; left: 13%; }
 .scroll-cue { position: absolute; right: 50%; bottom: 0; display: grid; width: 34px; height: 52px; place-items: center; border: 1px solid var(--line); border-bottom: 0; border-radius: 18px 18px 0 0; transform: translateX(50%); }
 .scroll-cue span { width: 1px; height: 16px; background: var(--clay); }
@@ -227,7 +226,6 @@ a:focus-visible, button:focus-visible {
   .art-ring-two { width: 215px; }
   .butterfly-control { width: 170px; height: 170px; }
   .butterfly-illustration { width: 58px; height: 58px; }
-  .art-label-top { top: 20px; right: 17%; }
   .art-label-bottom { bottom: 18px; left: 17%; }
   .section { padding-block: 82px; }
   .section-heading { display: block; margin-bottom: 35px; }
