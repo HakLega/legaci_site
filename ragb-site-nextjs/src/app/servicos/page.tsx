@@ -144,6 +144,12 @@ export default function ServicesPage() {
               <a className="button button-light" href={site.whatsappUrl}>
                 <MessageCircle aria-hidden="true" /> Fale com a Leggare
               </a>
+              <a className="contact-email" href={`mailto:${site.email}`}>
+                {site.email}
+              </a>
+              <a className="contact-phone" href={`tel:${site.phone}`}>
+                {site.phoneLabel}
+              </a>
             </div>
           </div>
         </section>
