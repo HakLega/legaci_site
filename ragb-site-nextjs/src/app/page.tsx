@@ -38,7 +38,7 @@ const steps = [
 
 const navigation = [
   { href: "#sobre", label: "Sobre" },
-  { href: "#servicos", label: "Serviços" },
+  { href: "/servicos", label: "Serviços" },
   { href: "#processo", label: "Como trabalhamos" },
 ];
 
@@ -83,7 +83,7 @@ export default function Home() {
                 <a className="button" href="#contato">
                   Fale com a Leggare <ArrowRight aria-hidden="true" />
                 </a>
-                <a className="text-link" href="#servicos">
+                <a className="text-link" href="/servicos">
                   Conheça os serviços <ArrowDownRight aria-hidden="true" />
                 </a>
               </div>

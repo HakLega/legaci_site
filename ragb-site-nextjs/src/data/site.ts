@@ -1,4 +1,4 @@
-const phone = "+5516991733137";
+const phone = "+5516996109741";
 const whatsappNumber = phone.replace(/\D/g, "");
 const whatsappMessage =
   "Olá! Conheci a Leggare pelo site e gostaria de conversar sobre um projeto regulatório.";
@@ -12,7 +12,7 @@ export const site = {
     "A Leggare assessora empresas na estruturação e condução de projetos regulatórios, transformando requisitos técnicos em caminhos claros para cada operação.",
   email: "regulatorio@leggare.com",
   phone,
-  phoneLabel: "(16) 99173-3137",
+  phoneLabel: "(16) 99610-9741",
   whatsappNumber,
   whatsappMessage,
   whatsappUrl: `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`,
