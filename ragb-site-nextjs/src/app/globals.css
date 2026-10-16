@@ -145,6 +145,7 @@ a:focus-visible, button:focus-visible {
 .service-card a { display: inline-flex; align-items: center; gap: 8px; margin-top: auto; color: var(--forest); font-size: 12px; font-weight: 800; }
 .service-card a svg { width: 16px; height: 16px; transition: transform .18s ease; }
 .service-card a:hover svg { transform: translateX(4px); }
+.services-more { display: flex; justify-content: flex-end; margin-top: 20px; }
 
 .process-section { padding-block: 104px; color: var(--paper); background: var(--forest-deep); }
 .process-layout { display: grid; grid-template-columns: .9fr 1.1fr; gap: 90px; align-items: center; }

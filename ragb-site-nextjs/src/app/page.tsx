@@ -19,13 +19,17 @@ const services = [
     number: "01",
     title: "MAPA",
     description:
-      "Apoio regulatório para estabelecimentos, produtos, licenças e processos de renovação.",
+      "Regularização de empresas, estabelecimentos e produtos, além de licenças, registros e processos de renovação.",
+    cta: "Conhecer serviços MAPA",
+    href: "/servicos#mapa",
   },
   {
     number: "02",
-    title: "Estratégia regulatória",
+    title: "Viabilidade técnica e regulatória",
     description:
-      "Análise de enquadramento, requisitos e riscos para planejar os próximos passos do seu projeto.",
+      "Análise de enquadramento, requisitos, documentos e riscos para definir o caminho regulatório mais adequado ao projeto.",
+    cta: "Conhecer esta frente",
+    href: "/servicos#viabilidade",
   },
 ];
 
@@ -112,11 +116,16 @@ export default function Home() {
                   <span className="card-number">{service.number}</span>
                   <h3>{service.title}</h3>
                   <p>{service.description}</p>
-                  <a href="#contato" aria-label={`Falar sobre ${service.title}`}>
-                    Falar sobre este serviço <ArrowRight aria-hidden="true" />
+                  <a href={service.href}>
+                    {service.cta} <ArrowRight aria-hidden="true" />
                   </a>
                 </article>
               ))}
+            </div>
+            <div className="services-more">
+              <a className="text-link" href="/servicos">
+                Ver todos os serviços <ArrowRight aria-hidden="true" />
+              </a>
             </div>
           </div>
         </section>

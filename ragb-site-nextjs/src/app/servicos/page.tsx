@@ -14,6 +14,7 @@ const navigation = [
 const serviceGroups = [
   {
     number: "01",
+    anchor: "mapa",
     title: "Empresas e estabelecimentos MAPA",
     items: [
       { title: "Fertilizantes, inoculantes e substratos", description: "Produção, importação e comércio." },
@@ -32,6 +33,7 @@ const serviceGroups = [
   },
   {
     number: "03",
+    anchor: "viabilidade",
     title: "Viabilidade técnica e regulatória",
     items: [
       {
@@ -114,7 +116,7 @@ export default function ServicesPage() {
         <section className={styles.services} aria-label="Serviços regulatórios">
           <div className="container">
             {serviceGroups.map((group) => (
-              <article className={styles.serviceBlock} key={group.number}>
+              <article className={styles.serviceBlock} id={group.anchor} key={group.number}>
                 <div className={styles.serviceHeading}>
                   <span className={styles.serviceNumber}>{group.number}</span>
                   <h2 className={styles.serviceTitle}>{group.title}</h2>
