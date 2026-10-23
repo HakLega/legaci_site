@@ -19,7 +19,7 @@ const services = [
     number: "01",
     title: "MAPA",
     description:
-      "Regularização de empresas, estabelecimentos e produtos, além de licenças, registros e processos de renovação.",
+      "Regularização de estabelecimentos, produtos e serviços pós-registro.",
     cta: "Conhecer serviços MAPA",
     href: "/servicos#mapa",
   },

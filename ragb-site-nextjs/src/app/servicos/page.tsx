@@ -15,20 +15,23 @@ const serviceGroups = [
   {
     number: "01",
     anchor: "mapa",
-    title: "Empresas e estabelecimentos MAPA",
+    title: "Estabelecimentos MAPA",
     items: [
       { title: "Fertilizantes, inoculantes e substratos", description: "Produção, importação e comércio." },
       { title: "Armazenagem e acondicionamento", description: "Regularização de prestadores de serviços." },
-      { title: "Defensivos agrícolas", description: "Fabricação, importação, exportação e comércio." },
+      { title: "Defensivos agrícolas", description: "Fabricação, manipulação, importação, exportação e comércio." },
       { title: "Alimentação animal", description: "Fabricação de alimentos, ingredientes, suplementos e aditivos." },
       { title: "Produtos veterinários", description: "Importação de produtos veterinários." },
+      { title: "Registros e cadastros", description: "Fertilizantes, substratos, inoculantes e defensivos agrícolas." },
     ],
   },
   {
     number: "02",
-    title: "Registro e cadastro de produtos",
+    title: "Pós-registro",
     items: [
-      { title: "Produtos agrícolas", description: "Fertilizantes, substratos, inoculantes e defensivos agrícolas." },
+      { title: "Renovações e alterações" },
+      { title: "Informes" },
+      { title: "Cadastros estaduais" },
     ],
   },
   {
@@ -125,7 +128,9 @@ export default function ServicesPage() {
                   {group.items.map((item) => (
                     <li className={styles.serviceItem} key={item.title}>
                       <h3 className={styles.itemTitle}>{item.title}</h3>
-                      <p className={styles.itemDescription}>{item.description}</p>
+                        {"description" in item && item.description ? (
+                          <p className={styles.itemDescription}>{item.description}</p>
+                        ) : null}
                     </li>
                   ))}
                 </ul>
