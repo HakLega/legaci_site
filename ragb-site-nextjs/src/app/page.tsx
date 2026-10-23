@@ -158,7 +158,7 @@ export default function Home() {
             <div className="about-monogram" aria-hidden="true">
               <span className="monogram-line" />
               <ButterflyMark className="about-butterfly" />
-              <small>Consultoria Regulatória</small>
+              <small>INTELIGÊNCIA REGULATÓRIA</small>
             </div>
             <div className="about-copy">
               <p className="eyebrow">Sobre a Leggare</p>
