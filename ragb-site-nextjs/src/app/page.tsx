@@ -65,7 +65,7 @@ export default function Home() {
                 {item.label}
               </a>
             ))}
-            <a className="button button-small" href="#contato">
+            <a className="button button-small" href="/contato">
               Fale com a Leggare <ArrowRight aria-hidden="true" />
             </a>
           </nav>
@@ -84,7 +84,7 @@ export default function Home() {
               </h1>
               <p className="hero-intro">{site.heroDescription}</p>
               <div className="hero-actions">
-                <a className="button" href="#contato">
+                <a className="button" href="/contato">
                   Fale com a Leggare <ArrowRight aria-hidden="true" />
                 </a>
                 <a className="text-link" href="/servicos">
@@ -169,7 +169,7 @@ export default function Home() {
                 O trabalho é conduzido de forma personalizada, com atenção ao
                 contexto de cada projeto.
               </p>
-              <a className="text-link" href="#contato">
+              <a className="text-link" href="/contato">
                 Fale com a Leggare <ArrowRight aria-hidden="true" />
               </a>
             </div>

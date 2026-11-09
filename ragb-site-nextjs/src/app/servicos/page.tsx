@@ -92,7 +92,7 @@ export default function ServicesPage() {
                 {item.label}
               </a>
             ))}
-            <a className="button button-small" href="/#contato">
+            <a className="button button-small" href="/contato">
               Fale com a Leggare <ArrowRight aria-hidden="true" />
             </a>
           </nav>
@@ -147,7 +147,7 @@ export default function ServicesPage() {
             </div>
             <div className="contact-actions">
               <a className="button button-light" href={site.whatsappUrl}>
-                <MessageCircle aria-hidden="true" /> Fale com a Leggare
+                <MessageCircle aria-hidden="true" /> Conversar pelo WhatsApp
               </a>
               <a className="contact-email" href={`mailto:${site.email}`}>
                 {site.email}
